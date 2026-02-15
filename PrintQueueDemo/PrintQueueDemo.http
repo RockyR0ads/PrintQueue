@@ -1,0 +1,6 @@
+@PrintQueueDemo_HostAddress = http://localhost:5079
+
+GET {{PrintQueueDemo_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
