@@ -1,0 +1,47 @@
+
+<div class="container">
+  <div class="card">
+    <h1>Print Cost Estimator</h1>
+
+    <div class="form-group">
+      <label>Model Name</label>
+      <input [(ngModel)]="modelName" placeholder="Enter model name">
+    </div>
+    <div class="form-group">
+    <label>Printer</label>
+      <select [(ngModel)]="printer">
+        <option [ngValue]="null">Select a printer</option>
+        @for (p of printers; track p) {
+          <option [value]="p">{{ p }}</option>
+        }
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Filament Type</label>
+      <select [(ngModel)]="filamentType">
+        <option [ngValue]="null">Select a filament type</option>
+        <option value="PLA">PLA</option>
+        <option value="PETG">PETG</option>
+        <option value="ABS">ABS</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Estimated Minutes</label>
+      <input type="number" [(ngModel)]="estimatedMinutes" placeholder="e.g. 120">
+    </div>
+
+    <button class="primary-btn" (click)="calculateCost()">Calculate Cost</button>
+
+    @if (result) {
+      <div class="result-box">
+        <h3>Estimated Cost</h3>
+        <p>{{ result.cost }}</p>
+      </div>
+    }
+
+
+
+  </div>
+</div>
